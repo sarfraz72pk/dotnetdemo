@@ -78,7 +78,7 @@ stages:
   displayName: 'Deploy to Dev'
   # condition: and(succeeded(), eq(variables.isMain, 'true'))
   variables: 
-    appName: 'bermtectest1'
+    appName: 'Sarfraz1'
   jobs:
   - deployment: 'Dev'
      
@@ -90,16 +90,16 @@ stages:
           - task: AzureRmWebAppDeployment@4
             inputs:
               ConnectionType: 'AzureRM'
-              azureSubscription: 'Pay-As-You-Go(63b33cff-5a1f-40bc-8e84-ad332cd71188)'
+              azureSubscription: 'Azure subscription 1(3e8107cc-8a31-49d5-b085-eb20a378387f)'
               appType: 'webAppLinux'
               WebAppName: $(appName)
               packageForLinux: '$(Pipeline.Workspace)/$(artifaceName)/$(buildConfiguration)/*.zip'
 
 - stage: 'DeployProd'
-  displayName: 'Deploy to Dev'
+  displayName: 'Deploy to Prod'
   # condition: and(succeeded(), eq(variables.isMain, 'true'))
   variables: 
-    appName: 'bermtecprod'
+    appName: 'Sarfrazprod'
   jobs:
   - deployment: 'Prod'
      
@@ -111,7 +111,7 @@ stages:
           - task: AzureRmWebAppDeployment@4
             inputs:
               ConnectionType: 'AzureRM'
-              azureSubscription: 'Pay-As-You-Go(63b33cff-5a1f-40bc-8e84-ad332cd71188)'
+              azureSubscription: 'Azure subscription 1(3e8107cc-8a31-49d5-b085-eb20a378387f)'
               appType: 'webAppLinux'
               WebAppName: $(appName)
               packageForLinux: '$(Pipeline.Workspace)/$(artifaceName)/$(buildConfiguration)/*.zip'
